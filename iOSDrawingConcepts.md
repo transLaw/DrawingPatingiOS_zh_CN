@@ -43,6 +43,8 @@ System views are redrawn automatically. For custom views, you must override the 
 
 After calling your drawRect: method, the view marks itself as updated and waits for new actions to arrive and trigger another update cycle. If your view displays static content, then all you need to do is respond to changes in your view’s visibility caused by scrolling and the presence of other views.
 
+在`drawRect`方法被调用后，视图会将自己标记为*已更新*状态，并且等到新的动作(actions)到达并触发新一轮的更新周期。如果你的视图呈现的是静态内容，那么你只需要响应其由于滑动和呈现其它视图时引起的可见性的改变。
+
 If you want to change the contents of the view, however, you must tell your view to redraw its contents. To do this, call the setNeedsDisplay or setNeedsDisplayInRect: method to trigger an update. For example, if you were updating content several times a second, you might want to set up a timer to update your view. You might also update your view in response to user interactions or the creation of new content in your view.
 
 > Important: Do not call your view’s drawRect: method yourself. That method should be called only by code built into iOS during a screen repaint. At other times, no graphics context exists, so drawing is not possible. (Graphics contexts are explained in the next section.)
