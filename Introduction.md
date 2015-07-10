@@ -6,8 +6,7 @@ This document covers three related subjects:
 * Drawing into offscreen bitmap and PDF content. Whether you plan to display the images later, export them to a file, or print the images to an AirPrint-enabled printer, offscreen drawing lets you do so without interrupting the user’s workflow.
 * Adding AirPrint support to your app. The iOS printing system lets you draw your content differently to fit on the page.
 
-Figure I-1  You can combine custom views with standard views, and even draw things offscreen.
-
+*Figure I-1*  You can combine custom views with standard views, and even draw things offscreen.
 ![Figure I-1 Image](./img/FI1.png)
 
 ## At a Glance
