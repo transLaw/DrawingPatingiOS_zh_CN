@@ -23,13 +23,23 @@ The basic drawing model for subclasses of the UIView class involves updating con
 
 When a view is first shown or when a portion of the view needs to be redrawn, iOS asks the view to draw its content by calling the view’s drawRect: method.
 
-There are several actions that can trigger a view update:
+当一个视图初次呈现或是这个视图部分需要被重绘时，iOS会让该视图调用其`drawRect:`方法来绘制自己的内容。
 
-Moving or removing another view that was partially obscuring your view
-Making a previously hidden view visible again by setting its hidden property to NO
-Scrolling a view off of the screen and then back onto the screen
-Explicitly calling the setNeedsDisplay or setNeedsDisplayInRect: method of your view
+There are several actions that can trigger a view update:
+* Moving or removing another view that was partially obscuring your view
+* Making a previously hidden view visible again by setting its hidden property to NO
+* Scrolling a view off of the screen and then back onto the screen
+* Explicitly calling the `setNeedsDisplay` or `setNeedsDisplayInRect:` method of your view
+
+存在以下几种方式会触发一个视图的更新:
+* 移动或移除了一个部分遮挡了你的视图的视图时；
+* 通过改变一个视图的hidden属性为NO，让该视图变为可见时；
+* 滑动一个视图消失在屏幕之外，随后又滑动回来变为可见时；
+* 明确的调用一个视图的`setNeedsDisplay`方法和`setNeedsDisplayInRect`方法时。
+
 System views are redrawn automatically. For custom views, you must override the drawRect: method and perform all your drawing inside it. Inside your drawRect: method, use the native drawing technologies to draw shapes, text, images, gradients, or any other visual content you want. The first time your view becomes visible, iOS passes a rectangle to the view’s drawRect: method that contains your view’s entire visible area. During subsequent calls, the rectangle includes only the portion of the view that actually needs to be redrawn. For maximum performance, you should redraw only affected content.
+
+系统视图(System views)是自动重绘的。对于自定义视图，你必须重写`drawRect`方法，在该方法中实现你的绘图操作。在你的`drawRect`方法中，使用原生的绘图计数来绘制图形，文字，图像，渐变，或任何其它你希望绘制的可见内容。当你的视图第一次变为可见时，iOS会传入一个包含你的视图所有可见区域的方形区域给该视图的`drawRect`方法。在其后对`drawRect`方法的调用时，传入的方形区域就只会包含该视图实际需要被重绘的部分。为了最高性能考虑，你应该只绘制涉及改动的部分。
 
 After calling your drawRect: method, the view marks itself as updated and waits for new actions to arrive and trigger another update cycle. If your view displays static content, then all you need to do is respond to changes in your view’s visibility caused by scrolling and the presence of other views.
 
