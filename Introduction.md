@@ -5,6 +5,7 @@ This document covers three related subjects:
 * Drawing custom UI views. Custom UI views allow you to draw content that cannot easily be drawn with standard UI elements. For example, a drawing program might use a custom view for the user’s drawing, or an arcade game might use a custom view into which it draws sprites.
 * Drawing into offscreen bitmap and PDF content. Whether you plan to display the images later, export them to a file, or print the images to an AirPrint-enabled printer, offscreen drawing lets you do so without interrupting the user’s workflow.
 * Adding AirPrint support to your app. The iOS printing system lets you draw your content differently to fit on the page.
+
 Figure I-1  You can combine custom views with standard views, and even draw things offscreen.
 ![Figure I-1 Image][./img/FI1.png]
 
@@ -67,6 +68,7 @@ As of iOS 4.2, apps can print content wirelessly to supported printers using Air
 Some iOS devices feature high-resolution screens, so your app must be prepared to run on these devices and on devices with lower-resolution screens. iOS handles much of the work required to handle the different resolutions, but your app must do the rest. Your tasks include providing specially named high-resolution images and modifying your layer- and image-related code to take the current scale factor into account.
 
 > Relevant Appendix: [Supporting High-Resolution Screens In Views][14]
+
 ## See Also
 
 For complete examples of printing, see the PrintPhoto, Sample Print Page Renderer, and UIKit Printing with UIPrintInteractionController and UIViewPrintFormatter sample code projects.
