@@ -10,6 +10,8 @@ This chapter provides an overview of the drawing process for iOS apps, along wit
 
 > **Important**: Not all UIKit classes are thread safe. Be sure to check the documentation before performing drawing-related operations on threads other than your app’s main thread.
 
+> **重要**: 不是所有UIKit类都是线程安全的。在非主线程上实施绘制相关的操作时先查阅相关文档。
+
 ##The UIKit Graphics System
 
 In iOS, all drawing to the screen—regardless of whether it involves OpenGL, Quartz, UIKit, or Core Animation—occurs within the confines of an instance of the UIView class or a subclass thereof. Views define the portion of the screen in which drawing occurs. If you use system-provided views, this drawing is handled for you automatically. If you define custom views, however, you must provide the drawing code yourself. If you use Quartz, Core Animation, and UIKit to draw, you use the drawing concepts described in the following sections.
