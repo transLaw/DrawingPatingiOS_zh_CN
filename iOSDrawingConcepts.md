@@ -4,9 +4,11 @@ High-quality graphics are an important part of your app’s user interface. Prov
 
 Quartz is the main drawing interface, providing support for path-based drawing, anti-aliased rendering, gradient fill patterns, images, colors, coordinate-space transformations, and PDF document creation, display, and parsing. UIKit provides Objective-C wrappers for line art, Quartz images, and color manipulations. Core Animation provides the underlying support for animating changes in many UIKit view properties and can also be used to implement custom animations.
 
+Quartz是主要的绘画接口, 提供了对路径绘画，反锯齿渲染，渐变填充图样，图片，色彩，坐标空间变换，和PDF文件的创建，展示，解析的支持。UIKit提供了Objective-C对线条图形，Quartz图像，和色彩操控的包装。Core Animation提供了通过更改多种UIKit视图属性来产生动画变化的底层支持，并且也能用于实现自定义动画。
+
 This chapter provides an overview of the drawing process for iOS apps, along with specific drawing techniques for each of the supported drawing technologies. You will also find tips and guidance on how to optimize your drawing code for the iOS platform.
 
-> Important: Not all UIKit classes are thread safe. Be sure to check the documentation before performing drawing-related operations on threads other than your app’s main thread.
+> **Important**: Not all UIKit classes are thread safe. Be sure to check the documentation before performing drawing-related operations on threads other than your app’s main thread.
 
 ##The UIKit Graphics System
 
