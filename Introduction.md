@@ -7,7 +7,8 @@ This document covers three related subjects:
 * Adding AirPrint support to your app. The iOS printing system lets you draw your content differently to fit on the page.
 
 Figure I-1  You can combine custom views with standard views, and even draw things offscreen.
-![Figure I-1 Image][./img/FI1.png]
+
+![Figure I-1 Image](./img/FI1.png)
 
 ## At a Glance
 
