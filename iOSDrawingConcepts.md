@@ -6,7 +6,7 @@ Quartz is the main drawing interface, providing support for path-based drawing, 
 
 This chapter provides an overview of the drawing process for iOS apps, along with specific drawing techniques for each of the supported drawing technologies. You will also find tips and guidance on how to optimize your drawing code for the iOS platform.
 
-> Important: Not all UIKit classes are thread safe. Be sure to check the documentation before performing drawing-related operations on threads other than your app’s main thread.
+> **Important**: Not all UIKit classes are thread safe. Be sure to check the documentation before performing drawing-related operations on threads other than your app’s main thread.
 
 ##The UIKit Graphics System
 
