@@ -56,11 +56,18 @@ When an app draws something in iOS, it has to locate the drawn content in a two-
 
 In iOS, all drawing occurs in a graphics context. Conceptually, a graphics context is an object that describes where and how drawing should occur, including basic drawing attributes such as the colors to use when drawing, the clipping area, line width and style information, font information, compositing options, and so on.
 
+在iOS中，所有的绘制都是在图形上下文中完成的。图形上下文的定义是一个用于描述在哪儿绘制与怎样进行绘制的对象，其中包括了基本的绘制属性信息，例如绘制时使用的颜色，剪裁区域，线条宽度和样式信息，字体信息，组合选项等等。
+
 In addition, as shown in Figure 1-1, each graphics context has a coordinate system. More precisely, each graphics context has three coordinate systems:
 
 * The drawing (user) coordinate system. This coordinate system is used when you issue drawing commands.
 * The view coordinate system (base space). This coordinate system is a fixed coordinate system relative to the view.
 * The (physical) device coordinate system. This coordinate system represents pixels on the physical screen.
+
+除此之外，如图1-1所示，每个图形上下文都有一个坐标系。更准确的说，每个图形上下文有3个坐标系：
+* (用户)绘图坐标系。当你发出绘制命令时使用这个坐标系。
+* 视图坐标系(基础空间)。该坐标系是一个相对于视图的固定坐标系。
+* (物理)设备坐标系。该坐标系代表了像素所在的物理屏幕所出的位置。
 
 **Figure 1-1**  The relationship between drawing coordinates, view coordinates, and hardware coordinates
 ![Figure 1-1](./img/f11.png)
