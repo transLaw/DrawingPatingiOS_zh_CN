@@ -76,6 +76,7 @@ A lower-left-origin coordinate system (LLO), in which the origin of drawing oper
 These coordinate systems are shown in Figure 1-2.
 
 Figure 1-2  Default coordinate systems in iOS
+![Figure 1-2](./img/f12.png)
 
 Note: The default coordinate system in OS X is LLO-based. Although the drawing functions and methods of the Core Graphics and AppKit frameworks are perfectly suited to this default coordinate system, AppKit provides programmatic support for flipping the drawing coordinate system to have an upper-left origin.
 Before calling your view’s drawRect: method, UIKit establishes the default coordinate system for drawing to the screen by making a graphics context available for drawing operations. Within a view’s drawRect: method, an app can set graphics-state parameters (such as fill color) and draw to the current graphics context without needing to refer to the graphics context explicitly. This implicit graphics context establishes a ULO default coordinate system.
@@ -97,6 +98,7 @@ Because of this automatic mapping, when writing drawing code, pixels usually don
 In iOS, when you draw things onscreen, the graphics subsystem uses a technique called antialiasing to approximate a higher-resolution image on a lower-resolution screen. The best way to explain this technique is by example. When you draw a black vertical line on a solid white background, if that line falls exactly on a pixel, it appears as a series of black pixels in a field of white. If it appears exactly between two pixels, however, it appears as two grey pixels side-by-side, as shown in Figure 1-3.
 
 Figure 1-3  A one-point line centered at a whole-numbered point value
+![Figure 1-3](./img/f13.png)
 
 Positions defined by whole-numbered points fall at the midpoint between pixels. For example, if you draw a one-pixel-wide vertical line from (1.0, 1.0) to (1.0, 10.0), you get a fuzzy grey line. If you draw a two-pixel-wide line, you get a solid black line because it fully covers two pixels (one on either side of the specified point). As a rule, lines that are an odd number of physical pixels wide appear softer than lines with widths measured in even numbers of physical pixels unless you adjust their position to make them cover pixels fully.
 
@@ -105,6 +107,7 @@ Where the scale factor comes into play is when determining how many pixels are c
 On a low-resolution display (with a scale factor of 1.0), a one-point-wide line is one pixel wide. To avoid antialiasing when you draw a one-point-wide horizontal or vertical line, if the line is an odd number of pixels in width, you must offset the position by 0.5 points to either side of a whole-numbered position. If the line is an even number of points in width, to avoid a fuzzy line, you must not do so.
 
 Figure 1-4  Appearance of one-point-wide lines on standard and retina displays
+![Figure 1-4](./img/f14.png)
 
 On a high-resolution display (with a scale factor of 2.0), a line that is one point wide is not antialiased at all because it occupies two full pixels (from -0.5 to +0.5). To draw a line that covers only a single physical pixel, you would need to make it 0.5 points in thickness and offset its position by 0.25 points. A comparison between the two types of screens is shown in Figure 1-4.
 
@@ -277,6 +280,7 @@ Some rendering oddities are brought to light when you draw an object with with r
 If you draw a path with functions such as CGContextAddArc and CGPathAddArc and assume a LLO coordinate system, then you need to flip the CTM to render the arc correctly in a UIKit view. However, if you use the same function to create an arc with points located in a ULO coordinate system and then render the path in a UIKit view, you’ll notice that the arc is an altered version of its original. The terminating endpoint of the arc now points in the opposite direction of what that endpoint would do were the arc created using the UIBezierPath class. For example, a downward-pointing arrow now points upward (as shown in Figure 1-5), and the direction in which the arc “bends” is also different. You must change the direction of Core Graphics-drawn arcs to account for the ULO-based coordinate system; this direction is controlled by the startAngle and endAngle parameters of those functions.
 
 Figure 1-5  Arc rendering in Core Graphics versus UIKit
+![Figure 1-5](./img/f15.png)
 
 You can observe the same kind of mirroring effect if you rotate an object (for example, by calling CGContextRotateCTM). If you rotate an object using Core Graphics calls that make reference to a ULO coordinate system, the direction of the object when rendered in UIKit is reversed. You must account for the different directions of rotation in your code; with CGContextRotateCTM, you do this by inverting the sign of the angle parameter (so, for example, a negative value becomes a positive value).
 
