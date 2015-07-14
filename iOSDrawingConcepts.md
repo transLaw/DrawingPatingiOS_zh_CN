@@ -74,7 +74,11 @@ In addition, as shown in Figure 1-1, each graphics context has a coordinate syst
 
 The drawing frameworks of iOS create graphics contexts for drawing to specific destinations—the screen, bitmaps, PDF content, and so on—and these graphics contexts establish the initial drawing coordinate system for that destination. This initial drawing coordinate system is known as the default coordinate system, and is a 1:1 mapping onto the view’s underlying coordinate system.
 
+iOS的绘图框架会为特定的绘制目标(destination)创建相对应的图形上下文，如屏幕，位图，PDF文档等，这些图形上下文会为其对应的绘制目标建立一个初始绘图坐标系。这个初始的绘图坐标系就是默认坐标系，并且与底层视图坐标系有着1:1映射关系。
+
 Each view also has a current transformation matrix (CTM), a mathematical matrix that maps the points in the current drawing coordinate system to the (fixed) view coordinate system. The app can modify this matrix (as described later) to change the behavior of future drawing operations.
+
+每个视图还包含一个当前变换矩阵(current transformation matric(CTX)), 一个将当前绘制坐标上的点映射至(固定)视图坐标系的数学矩阵。应用(The app)能够通过修改这个矩阵(稍后讲解)来改变未来绘制操作的行为。
 
 Each of the drawing frameworks of iOS establishes a default coordinate system based on the current graphics context. In iOS, there are two main types of coordinate systems:
 
