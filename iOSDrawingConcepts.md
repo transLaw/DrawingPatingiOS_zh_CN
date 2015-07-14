@@ -58,10 +58,12 @@ In iOS, all drawing occurs in a graphics context. Conceptually, a graphics conte
 
 In addition, as shown in Figure 1-1, each graphics context has a coordinate system. More precisely, each graphics context has three coordinate systems:
 
-The drawing (user) coordinate system. This coordinate system is used when you issue drawing commands.
-The view coordinate system (base space). This coordinate system is a fixed coordinate system relative to the view.
-The (physical) device coordinate system. This coordinate system represents pixels on the physical screen.
-Figure 1-1  The relationship between drawing coordinates, view coordinates, and hardware coordinates
+* The drawing (user) coordinate system. This coordinate system is used when you issue drawing commands.
+* The view coordinate system (base space). This coordinate system is a fixed coordinate system relative to the view.
+* The (physical) device coordinate system. This coordinate system represents pixels on the physical screen.
+
+**Figure 1-1**  The relationship between drawing coordinates, view coordinates, and hardware coordinates
+![Figure 1-1](./img/f11.png)
 
 The drawing frameworks of iOS create graphics contexts for drawing to specific destinations—the screen, bitmaps, PDF content, and so on—and these graphics contexts establish the initial drawing coordinate system for that destination. This initial drawing coordinate system is known as the default coordinate system, and is a 1:1 mapping onto the view’s underlying coordinate system.
 
